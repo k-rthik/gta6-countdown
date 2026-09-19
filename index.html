@@ -1,0 +1,993 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="A 64-night neon advent countdown to Grand Theft Auto VI. One door a night, a working cheat code, and receipts on the disc that isn't in the box.">
+<meta name="theme-color" content="#0A0418">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Nights in Leonida">
+<meta property="og:description" content="A 64-night neon advent countdown to GTA VI. One door a night, a working cheat code, and receipts on the disc that isn't in the box.">
+<meta property="og:image" content="/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Nights in Leonida">
+<meta name="twitter:description" content="A 64-night neon advent countdown to GTA VI. One door a night, a working cheat code, and receipts on the disc that isn't in the box.">
+<meta name="twitter:image" content="/og.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E%F0%9F%8C%B4%3C/text%3E%3C/svg%3E">
+<style>
+html{color-scheme:dark}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+img{max-width:100%}
+[hidden]{display:none!important}
+</style>
+<title>Nights in Leonida</title>
+<style>
+/* Self-hosted type — no third-party requests, no tracking, no render-blocking CDN. */
+@font-face{font-family:"Bungee";font-style:normal;font-weight:400;font-display:swap;src:url("fonts/bungee-latin-400-normal.woff2") format("woff2")}
+@font-face{font-family:"Monoton";font-style:normal;font-weight:400;font-display:swap;src:url("fonts/monoton-latin-400-normal.woff2") format("woff2")}
+@font-face{font-family:"Chivo";font-style:normal;font-weight:400;font-display:swap;src:url("fonts/chivo-latin-400-normal.woff2") format("woff2")}
+@font-face{font-family:"Chivo";font-style:normal;font-weight:700;font-display:swap;src:url("fonts/chivo-latin-700-normal.woff2") format("woff2")}
+@font-face{font-family:"Chivo";font-style:normal;font-weight:900;font-display:swap;src:url("fonts/chivo-latin-900-normal.woff2") format("woff2")}
+@font-face{font-family:"Space Mono";font-style:normal;font-weight:400;font-display:swap;src:url("fonts/space-mono-latin-400-normal.woff2") format("woff2")}
+@font-face{font-family:"Space Mono";font-style:normal;font-weight:700;font-display:swap;src:url("fonts/space-mono-latin-700-normal.woff2") format("woff2")}
+</style>
+
+<style>
+:root{
+  --night:#0A0418;
+  --night-2:#150829;
+  --panel:#1C0B36;
+  --panel-hi:#2A1150;
+  --flamingo:#FF2E88;
+  --cyan:#25E7F5;
+  --sun:#FFB13C;
+  --lilac:#C08BFF;
+  --lime:#8CFF5A;
+  --chrome:#F6ECFF;
+  --muted:#9A85B8;
+  --edge:rgba(192,139,255,.22);
+  --grid-max:1180px;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--night);
+  color:var(--chrome);
+  font-family:"Chivo","Helvetica Neue",Arial,sans-serif;
+  font-size:16px;
+  line-height:1.6;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:60;
+  background:repeating-linear-gradient(to bottom,rgba(0,0,0,.20) 0 1px,rgba(255,255,255,0) 1px 3px);
+  mix-blend-mode:multiply;
+  opacity:.5;
+}
+.wrap{max-width:var(--grid-max);margin:0 auto;padding-inline:20px}
+a{color:var(--cyan)}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;isolation:isolate;overflow:hidden;border-bottom:1px solid var(--edge)}
+#sky{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:-1}
+.hero-inner{
+  position:relative;
+  padding-block:54px 42px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:22px;
+  text-align:center;
+}
+.eyebrow{
+  font-family:"Space Mono",ui-monospace,monospace;
+  font-size:11px;
+  letter-spacing:.28em;
+  text-transform:uppercase;
+  color:var(--cyan);
+  margin:0;
+}
+.sign{
+  font-family:"Monoton",cursive;
+  font-weight:400;
+  font-size:clamp(34px,8.4vw,74px);
+  line-height:1.04;
+  margin:0;
+  text-wrap:balance;
+  color:#FFDCEF;
+  letter-spacing:.01em;
+  text-shadow:
+    0 0 4px #fff,
+    0 0 12px var(--flamingo),
+    0 0 34px var(--flamingo),
+    0 0 72px rgba(255,46,136,.55);
+  animation:flicker 7s infinite steps(1,end);
+}
+.sign em{font-style:normal;color:#DFF9FF;text-shadow:0 0 4px #fff,0 0 14px var(--cyan),0 0 40px var(--cyan)}
+@keyframes flicker{
+  0%,100%{opacity:1}
+  41%{opacity:1}
+  42%{opacity:.35}
+  43%{opacity:1}
+  56%{opacity:1}
+  57%{opacity:.5}
+  58%{opacity:1}
+  59%{opacity:.3}
+  60%{opacity:1}
+}
+.tagline{
+  max-width:46ch;
+  margin:0;
+  color:#E4D3FA;
+  font-size:clamp(15px,2.2vw,18px);
+}
+.tagline b{color:var(--sun);font-weight:900}
+
+/* ticker */
+.ticker{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  justify-content:center;
+  margin-top:4px;
+}
+.unit{
+  min-width:86px;
+  padding:12px 14px 10px;
+  border:1px solid var(--edge);
+  border-radius:3px;
+  background:linear-gradient(180deg,rgba(42,17,80,.82),rgba(12,5,26,.86));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.08), 0 0 26px rgba(255,46,136,.16);
+  backdrop-filter:blur(3px);
+}
+.unit .n{
+  font-family:"Bungee",Impact,sans-serif;
+  font-size:clamp(28px,6vw,42px);
+  line-height:1;
+  display:block;
+  font-variant-numeric:tabular-nums;
+  color:var(--chrome);
+  text-shadow:0 0 16px rgba(37,231,245,.55);
+}
+.unit.pop .n{animation:pop .45s ease-out}
+@keyframes pop{0%{transform:scale(1.18);color:var(--cyan)}100%{transform:scale(1)}}
+.unit .l{
+  display:block;
+  margin-top:7px;
+  font-family:"Space Mono",monospace;
+  font-size:9.5px;
+  letter-spacing:.24em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+
+/* heat meter */
+.heat{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap;
+  justify-content:center;
+  font-family:"Space Mono",monospace;
+  font-size:10.5px;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+.stars{display:flex;gap:5px}
+.star{width:19px;height:19px;color:#3B2258;transition:color .4s ease}
+.star.on{color:var(--sun);filter:drop-shadow(0 0 7px rgba(255,177,60,.85));animation:beat 1.9s ease-in-out infinite}
+.star.on:nth-child(2){animation-delay:.12s}
+.star.on:nth-child(3){animation-delay:.24s}
+.star.on:nth-child(4){animation-delay:.36s}
+.star.on:nth-child(5){animation-delay:.48s}
+.star.on:nth-child(6){animation-delay:.6s}
+@keyframes beat{0%,100%{transform:scale(1)}50%{transform:scale(1.16)}}
+
+.unofficial{
+  font-family:"Space Mono",monospace;
+  font-size:10px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:#6E5A8A;
+  margin:0;
+}
+
+/* ---------- CONTROL BAR ---------- */
+.bar{
+  position:sticky;
+  top:env(safe-area-inset-top,0px);
+  z-index:40;
+  background:rgba(10,4,24,.93);
+  backdrop-filter:blur(9px);
+  border-bottom:1px solid var(--edge);
+}
+.bar-inner{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  flex-wrap:wrap;
+  padding-block:11px;
+}
+.progress{
+  flex:1 1 200px;
+  min-width:170px;
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+.progress .top{
+  display:flex;
+  justify-content:space-between;
+  font-family:"Space Mono",monospace;
+  font-size:10px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+.progress .top b{color:var(--flamingo)}
+.rail{height:4px;background:#26123F;border-radius:99px;overflow:hidden}
+.rail i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--cyan),var(--flamingo),var(--sun));transition:width .6s cubic-bezier(.22,1,.36,1)}
+.cheat{display:flex;gap:7px;align-items:center}
+.cheat input{
+  width:180px;
+  background:#170A2C;
+  border:1px solid var(--edge);
+  border-radius:2px;
+  color:var(--lime);
+  font-family:"Space Mono",monospace;
+  font-size:11.5px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  padding:9px 10px;
+}
+.cheat input::placeholder{color:#5D4880;letter-spacing:.12em}
+.btn{
+  font-family:"Space Mono",monospace;
+  font-size:10.5px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  padding:9px 13px;
+  border-radius:2px;
+  border:1px solid var(--flamingo);
+  background:transparent;
+  color:var(--flamingo);
+  cursor:pointer;
+  transition:background .18s,color .18s,box-shadow .18s;
+}
+.btn:hover{background:var(--flamingo);color:#12061F;box-shadow:0 0 18px rgba(255,46,136,.6)}
+.btn.ghost{border-color:var(--edge);color:var(--muted)}
+.btn.ghost:hover{background:#26123F;color:var(--chrome);box-shadow:none}
+
+/* ---------- SECTIONS ---------- */
+section{padding-block:52px}
+.sec-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:8px}
+h2{
+  font-family:"Bungee",Impact,sans-serif;
+  font-weight:400;
+  font-size:clamp(22px,4.4vw,34px);
+  margin:0;
+  line-height:1.1;
+  text-wrap:balance;
+}
+h2 span{color:var(--flamingo)}
+.sec-note{color:var(--muted);max-width:60ch;margin:0 0 26px;font-size:15px}
+
+/* ---------- DOORS ---------- */
+.doors{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(228px,1fr));
+  gap:14px;
+}
+.door{
+  position:relative;
+  min-height:184px;
+  border:1px solid var(--edge);
+  border-radius:4px;
+  background:linear-gradient(170deg,var(--panel) 0%,#120627 100%);
+  padding:16px 16px 18px;
+  display:flex;
+  flex-direction:column;
+  gap:9px;
+  overflow:hidden;
+  transition:transform .25s cubic-bezier(.22,1,.36,1),box-shadow .25s,border-color .25s;
+}
+.door:hover{transform:translateY(-3px);border-color:rgba(255,46,136,.5);box-shadow:0 10px 34px -12px rgba(255,46,136,.5)}
+.door .cat{
+  font-family:"Space Mono",monospace;
+  font-size:9.5px;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+}
+.door h3{
+  font-family:"Bungee",Impact,sans-serif;
+  font-weight:400;
+  font-size:16px;
+  line-height:1.24;
+  margin:0;
+  color:var(--chrome);
+  text-wrap:balance;
+}
+.door p{margin:0;font-size:13.6px;line-height:1.55;color:#D2C1EA}
+.door .meta{
+  margin-top:auto;
+  padding-top:10px;
+  font-family:"Space Mono",monospace;
+  font-size:9.5px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:#7A6499;
+  border-top:1px dashed rgba(192,139,255,.16);
+}
+.c-throwback{color:var(--cyan)}
+.c-receipts{color:var(--flamingo)}
+.c-fineprint{color:var(--sun)}
+.c-radio{color:var(--lilac)}
+.c-dispatch{color:var(--lime)}
+
+/* shutter face */
+.shutter{
+  position:absolute;
+  inset:0;
+  z-index:2;
+  border:0;
+  width:100%;
+  text-align:left;
+  cursor:pointer;
+  color:inherit;
+  font:inherit;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  padding:16px;
+  background:
+    repeating-linear-gradient(to bottom,rgba(255,255,255,.045) 0 2px,rgba(0,0,0,.16) 2px 8px),
+    linear-gradient(165deg,#31145C 0%,#180A30 100%);
+  transform-origin:top center;
+  transition:transform .55s cubic-bezier(.5,0,.2,1),opacity .4s ease .12s;
+  backface-visibility:hidden;
+}
+.shutter::after{
+  content:"";
+  position:absolute;
+  left:0;right:0;bottom:0;
+  height:3px;
+  background:linear-gradient(90deg,transparent,var(--flamingo),transparent);
+  opacity:.75;
+}
+.door.open .shutter{transform:rotateX(-108deg);opacity:0;pointer-events:none}
+.door.open{background:linear-gradient(170deg,#22103F 0%,#10051F 100%)}
+.shutter .num{
+  font-family:"Bungee",Impact,sans-serif;
+  font-size:44px;
+  line-height:.9;
+  color:#FFD9EC;
+  text-shadow:0 0 12px rgba(255,46,136,.75);
+  font-variant-numeric:tabular-nums;
+}
+.shutter .sub{
+  font-family:"Space Mono",monospace;
+  font-size:9.5px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:#A98FCE;
+}
+.shutter .lock{
+  font-family:"Space Mono",monospace;
+  font-size:9.5px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--sun);
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+.door.locked .shutter{background:
+    repeating-linear-gradient(to bottom,rgba(255,255,255,.03) 0 2px,rgba(0,0,0,.2) 2px 8px),
+    linear-gradient(165deg,#241242 0%,#120724 100%)}
+.door.locked .shutter .num{color:#8C74B0;text-shadow:none}
+.door.today .shutter::after{height:4px;background:linear-gradient(90deg,transparent,var(--cyan),transparent);opacity:1;animation:sweep 2.4s ease-in-out infinite}
+@keyframes sweep{0%,100%{opacity:.35}50%{opacity:1}}
+.door.shake{animation:shake .42s cubic-bezier(.36,.07,.19,.97)}
+@keyframes shake{
+  10%,90%{transform:translateX(-2px)}
+  20%,80%{transform:translateX(4px)}
+  30%,50%,70%{transform:translateX(-7px)}
+  40%,60%{transform:translateX(7px)}
+}
+.door.launch{grid-column:1/-1;min-height:auto;background:linear-gradient(120deg,#3A0E46,#120627 60%)}
+.door.launch h3{font-size:clamp(20px,4vw,30px)}
+.door.launch .shutter .num{font-size:clamp(34px,7vw,56px)}
+
+/* ---------- RECEIPTS ---------- */
+.receipts{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:0;
+  border:1px solid var(--edge);
+  border-radius:4px;
+  overflow:hidden;
+}
+.rec{
+  padding:22px 20px;
+  border-right:1px solid var(--edge);
+  border-bottom:1px solid var(--edge);
+  background:linear-gradient(180deg,rgba(28,11,54,.6),transparent);
+}
+.rec .k{
+  font-family:"Bungee",Impact,sans-serif;
+  font-size:clamp(26px,5vw,38px);
+  line-height:1;
+  color:var(--sun);
+  display:block;
+  font-variant-numeric:tabular-nums;
+}
+.rec .kt{
+  display:block;
+  margin:9px 0 8px;
+  font-family:"Space Mono",monospace;
+  font-size:10px;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--cyan);
+}
+.rec p{margin:0;font-size:13.6px;color:#CDBBE8;line-height:1.55}
+
+/* ---------- FOOTER ---------- */
+footer{
+  border-top:1px solid var(--edge);
+  padding-block:34px 44px;
+  color:var(--muted);
+  font-size:13px;
+}
+footer h4{
+  font-family:"Space Mono",monospace;
+  font-size:10px;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--flamingo);
+  margin:0 0 10px;
+}
+footer ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:5px}
+footer .fine{margin-top:22px;font-size:11.5px;color:#6E5A8A;max-width:70ch}
+
+/* toast */
+#toast{
+  position:fixed;
+  left:50%;
+  bottom:calc(22px + env(safe-area-inset-bottom,0px));
+  transform:translate(-50%,130%);
+  z-index:70;
+  max-width:min(92vw,420px);
+  background:#1A0730;
+  border:1px solid var(--sun);
+  border-left-width:4px;
+  border-radius:3px;
+  padding:13px 16px;
+  box-shadow:0 18px 50px -14px rgba(0,0,0,.9);
+  transition:transform .4s cubic-bezier(.22,1,.36,1);
+}
+#toast.show{transform:translate(-50%,0)}
+#toast .tt{
+  font-family:"Space Mono",monospace;
+  font-size:10px;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--sun);
+  display:block;
+  margin-bottom:5px;
+}
+#toast .tb{font-size:13.5px;color:#E7D8FF;line-height:1.5}
+#toast.good{border-color:var(--lime)}
+#toast.good .tt{color:var(--lime)}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.05ms!important}
+}
+@media (max-width:520px){
+  .cheat input{width:140px}
+  .unit{min-width:70px;padding:10px}
+  .doors{grid-template-columns:repeat(auto-fill,minmax(160px,1fr))}
+  .door{min-height:168px;padding:13px}
+  .shutter{padding:13px}
+  .shutter .num{font-size:34px}
+}
+</style>
+
+</head>
+<body>
+<header class="hero">
+  <canvas id="sky" aria-hidden="true"></canvas>
+  <div class="wrap hero-inner">
+    <p class="eyebrow">Unofficial fan countdown &middot; State of Leonida</p>
+    <h1 class="sign">Nights in <em>Leonida</em></h1>
+    <p class="tagline">Grand Theft Auto VI lands <b>19 November 2026</b>. Open one door a day until then. No disc required &mdash; obviously.</p>
+
+    <div class="ticker" id="ticker">
+      <div class="unit"><span class="n" id="u-d">--</span><span class="l">Days</span></div>
+      <div class="unit"><span class="n" id="u-h">--</span><span class="l">Hours</span></div>
+      <div class="unit"><span class="n" id="u-m">--</span><span class="l">Minutes</span></div>
+      <div class="unit"><span class="n" id="u-s">--</span><span class="l">Seconds</span></div>
+    </div>
+
+    <div class="heat">
+      <span>Heat level</span>
+      <div class="stars" id="stars" aria-label="Hype level"></div>
+      <span id="heat-label">&mdash;</span>
+    </div>
+
+    <p class="unofficial">Made by a fan. Not affiliated with Rockstar Games, Take-Two, or Sony.</p>
+  </div>
+</header>
+
+<div class="bar">
+  <div class="wrap bar-inner">
+    <div class="progress">
+      <div class="top"><span>Doors opened</span><span><b id="p-count">0</b> / 64</span></div>
+      <div class="rail"><i id="p-rail"></i></div>
+    </div>
+    <div class="cheat">
+      <label for="cheat-in" class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Cheat code</label>
+      <input id="cheat-in" type="text" placeholder="Enter cheat code" autocomplete="off" spellcheck="false">
+      <button class="btn" id="cheat-go" type="button">Enter</button>
+      <button class="btn ghost" id="reset" type="button">Reset</button>
+    </div>
+  </div>
+</div>
+
+<main>
+  <section class="wrap">
+    <div class="sec-head"><h2>Sixty-four doors, <span>one per night</span></h2></div>
+    <p class="sec-note">Tonight's door is live. The rest stay shut until their date &mdash; unless you know the old ways. Cheat codes still work here, which is more than can be said for your game library.</p>
+    <div class="doors" id="doors"></div>
+  </section>
+
+  <section class="wrap">
+    <div class="sec-head"><h2>The <span>receipts</span></h2></div>
+    <p class="sec-note">Every joke on this page is doing unpaid labour for a real news story. Here are the ones it is carrying.</p>
+    <div class="receipts">
+      <div class="rec">
+        <span class="k">0</span>
+        <span class="kt">Discs in the disc box</span>
+        <p>The "physical" edition is reported to be a box with a download code inside. Same shelf, same price, same cover art, no disc. You cannot lend it, resell it, or install it from the cardboard.</p>
+      </div>
+      <div class="rec">
+        <span class="k">2</span>
+        <span class="kt">Shops that said no</span>
+        <p>Video Games Plus and Loot Box Gaming both refused to stock the biggest launch in the medium's history rather than sell a box of air. Roughly 40 years of goodwill, spent on principle.</p>
+      </div>
+      <div class="rec">
+        <span class="k">1</span>
+        <span class="kt">Legal filing, one phrase</span>
+        <p>Answering a California suit over "Buy Now," Sony argued a reasonable consumer already knows a digital game is licensed, not sold. The agreement says it plainly: licensed to you, not sold.</p>
+      </div>
+      <div class="rec">
+        <span class="k">2028</span>
+        <span class="kt">When the discs stop</span>
+        <p>PlayStation disc production is set to wind down by January 2028. The company that spent thirty years selling you a shelf would now like the shelf back.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <h4>Sources</h4>
+  <ul>
+    <li><a href="https://www.gtaboom.com/the-gta-6-physical-copy-controversy-explained-3866" target="_blank" rel="noopener">GTA BOOM &mdash; the code-in-a-box controversy explained</a></li>
+    <li><a href="https://kotaku.com/two-game-retailers-are-refusing-to-sell-gta-6-until-theres-a-disc-2000710134" target="_blank" rel="noopener">Kotaku &mdash; two retailers refuse to sell it without a disc</a></li>
+    <li><a href="https://www.pushsquare.com/news/2026/09/reasonable-consumers-know-they-dont-own-digital-games-says-sony" target="_blank" rel="noopener">Push Square &mdash; "reasonable consumers" know they don't own digital games</a></li>
+    <li><a href="https://www.videogameschronicle.com/news/sony-says-reasonable-consumers-know-they-dont-own-the-digital-games-they-buy/" target="_blank" rel="noopener">VGC &mdash; Sony on digital ownership</a></li>
+    <li><a href="https://fortune.com/2026/09/01/sony-playstation-dont-actually-own-digital-games-grand-theft-auto-analog-media-gen-z/" target="_blank" rel="noopener">Fortune &mdash; once a champion of physical media</a></li>
+  </ul>
+  <p class="fine">A fan-made countdown. Not affiliated with, endorsed by, or connected to Rockstar Games, Take-Two Interactive, or Sony Interactive Entertainment. All trademarks belong to their owners. Opened doors are remembered in this browser only. Release date per public reporting and subject to the industry's favourite verb.</p>
+</footer>
+
+<div id="toast" role="status" aria-live="polite" hidden>
+  <span class="tt" id="toast-t">Notice</span>
+  <span class="tb" id="toast-b"></span>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ============ DATA ============ */
+  var LAUNCH = new Date(2026,10,19,0,0,0);   // 19 Nov 2026, local
+  var START  = new Date(2026,8,16,0,0,0);    // 16 Sep 2026 — door 1
+  var CODE   = "NODISCNOPEACE";
+
+  var CARDS = [
+  ["throwback","Follow the damn train","Two decades on, a generation still flinches at freight trains. Not because of the train. Because of the friend on the back of the bike who would not shoot."],
+  ["receipts","Some assembly required","The physical edition is a box with a download code in it. Beautiful art, correct weight in the hand, contains exactly as much game as the cardboard it is printed on."],
+  ["fineprint","Reasonable consumers","Sony told a court that a reasonable consumer already knows the Buy Now button doesn't sell them anything. Reasonable consumers were not available for comment, being busy buying things."],
+  ["radio","Traffic on the sevens","Eastbound is backed up eleven miles. Cause unknown. One witness describes a silver sedan doing 190 through a wedding. Eastbound is now, in several senses, westbound."],
+  ["dispatch","All units, be advised","Suspect last seen refreshing a storefront at 4am with the devotion of a man waiting for an organ transplant. Approach with snacks."],
+  ["throwback","1986 never actually ended","It just moved into a mall, bought a pastel blazer, and waited. Everything you think is a new aesthetic was a loading screen you saw as a child."],
+  ["receipts","Two shops said no","Video Games Plus and Loot Box Gaming are sitting out the biggest launch in the medium's history rather than sell a box of air. Forty years of goodwill, spent on principle, in public."],
+  ["fineprint","The shelf is being repossessed","PlayStation disc production winds down by January 2028. The company that spent thirty years selling you a shelf would now like the shelf back, and also the shelf was a rental."],
+  ["throwback","A man of few words","The GTA III guy never said a single thing across an entire crime epic and somehow remains the most emotionally stable protagonist in the series. Speaking as another Claude: relatable."],
+  ["radio","Ad break: Sunshine Self-Storage","Climate-controlled units for your disc collection. Bring the cases. Bring the manuals. Bring the little foldout map. We don't judge, we just charge monthly, same as everyone else now."],
+  ["receipts","The resale market, solved","No disc means no used copy, which means no shop reselling your game back to another kid for eighteen dollars. A problem has been eliminated. The problem was a teenager affording a game."],
+  ["throwback","There was a jetpack","In a game from 2004, on a console with 32 megabytes of RAM, you could steal a jetpack from a government facility. Nobody has topped this. Several have tried."],
+  ["dispatch","Unit 12, respond","Caller reports a man doing yoga in an affluent neighbourhood, aggressively, while his family openly resents him. No crime committed. Something has clearly happened."],
+  ["fineprint","Your library is a loan","Everything you have bought this decade is a revocable licence sitting on someone else's server, which is a wonderful thing to learn about at the exact moment you wanted to replay something."],
+  ["throwback","Your cousin is calling","He wants to go bowling. He has always wanted to go bowling. Somewhere in a 2008 save file, a phone is still ringing, and you still feel bad about it."],
+  ["radio","Call-in hour","Caller from Vice Beach asks whether he owns his games. Host laughs for eleven seconds. Ad break. Line goes dead. We'll be right back after this word from a payday lender."],
+  ["receipts","Weigh the box","There is a real satisfaction to the heft of a game case. Take-Two has preserved this heft. The heft is now the product. You are buying the heft and renting the rest."],
+  ["throwback","Flight school","Somewhere out there is a person who never finished San Andreas because of a small plane and a set of floating rings. That person is now a pilot. Real one. Fixed it themselves."],
+  ["fineprint","Words that mean things","“Buy.” “Own.” “Yours.” “Purchase.” “Library.” “Collection.” Every one of these appears on a store page. None of them appear in the agreement, which prefers “licensed.”"],
+  ["dispatch","One star","Acquired by lightly bumping a patrol car with a bicycle. Do not attempt to explain. Do not attempt to pull over. The star has been issued and the star must be served."],
+  ["throwback","The in-game economy was training","Years of being sold digital money for real money, in a game about crime, by a company that is now selling you a box with nothing in it. The tutorial was very long and you passed."],
+  ["receipts","Collector's edition","Steelbook. Art print. Map. Keychain. Certificate of authenticity for a licence that can be switched off by a server in another country. Truly one for the display case."],
+  ["radio","Leonida weather","Ninety-four degrees, ninety-four percent humidity, and a hurricane that has been three days away for three weeks. Wear something you can swim in. Or crime in. Ideally both."],
+  ["throwback","Cheat codes on paper","A folded printout in a school bag, passed hand to hand like contraband. No account. No entitlement check. You typed the letters and a tank fell out of the sky. That was the whole system."],
+  ["fineprint","Account-bound forever","The code in the box binds to one account on first use. So the physical edition is a digital edition wearing a physical edition as a costume, and the costume costs the same."],
+  ["dispatch","Air support requested","Suspect heading for the causeway in a vehicle that is now mostly on fire. Chopper spotlight has him. He is, and we want to be clear about this, still indicating before turns."],
+  ["throwback","Fast food, slow consequences","Every GTA has a fried chicken chain that is somehow also a threat. You will eat there. You will regret it. You will go back, because the health bar does not care about your dignity."],
+  ["receipts","Day one patch","Rumoured to be larger than the thing it patches. Historically this is where the disc stopped being a game and became a 60-gigabyte coaster with a launcher on it."],
+  ["radio","Infomercial: the DiscMaster 9000","Spins a shiny circle. Reads the circle. Gives you the game. Works during an outage, in a bunker, and in 2044. Discontinued. Available exclusively at one shop that refuses to stock GTA VI."],
+  ["throwback","The pier at night","Arcade lights on wet boards, a Ferris wheel doing nothing in particular, somebody's car alarm. Rockstar has never once failed to nail the sound of a place at 2am."],
+  ["fineprint","Family sharing","Lend a friend a disc: friend plays game. Lend a friend a code: friend now owns your game, your account, your save, and the emotional high ground. Choose carefully."],
+  ["dispatch","Roadblock on the interstate","Four cruisers, spike strips, a helicopter, and a surprisingly polite officer with a megaphone. Suspect responds by driving into the sea. Suspect survives. Suspect always survives."],
+  ["throwback","The soundtrack raised you","You did not discover that band. A car radio in a fictional city discovered it for you in 2002 while you were doing crimes, and you have been quietly grateful ever since."],
+  ["receipts","Preservation problem","A disc from 2001 still boots. A licence from 2026 boots until someone decides otherwise. Museums have noticed this. Publishers have noticed that museums have noticed."],
+  ["radio","Ad break: attorney at law","Have you purchased something and then discovered you licensed it? You may be entitled to read a very long document. Call now. Operators are contractually barred from sympathising."],
+  ["throwback","The stairs incident","GTA IV's physics turned every staircase into a tragedy and every tragedy into a clip your friend still has. Ragdolls are the only special effect that has never aged."],
+  ["fineprint","Server sunset","Every online mode ends. The question is only whether the single-player campaign you paid for goes with it, and that answer lives in a paragraph you clicked past to get to the menu."],
+  ["dispatch","Shots fired near the marina","Correction: fireworks. Correction: not fireworks. All units proceed. Somebody call the boat guy. Yes, that boat guy. No, the other one, the one who owes us."],
+  ["throwback","Friendship as a chore list","2008 asked you to maintain relationships by driving across a city to play darts. Cruel, misunderstood, and secretly the most honest depiction of adult friendship ever shipped."],
+  ["receipts","Air-quotes physical","At some point a marketing team wrote the word “physical” on a product with nothing physical in it and nobody in that room stood up. That is the real crime story of the year."],
+  ["radio","Pirate station signs on","Broadcasting from a boat outside the limit, out of spite and one generator. No adverts, no licence, no terms of service. The last place in the state where you own what you tune into."],
+  ["throwback","The swingset","A children's playground that could launch a car into low orbit. Never patched, never acknowledged, never forgiven. Some bugs are load-bearing culture."],
+  ["fineprint","Region-locked memories","Buy in one country, move to another, discover the licence didn't emigrate with you. A disc in a suitcase has never once asked to see your passport."],
+  ["dispatch","Pursuit terminated","Suspect entered water. Suspect emerged eleven blocks away in a different outfit driving an ice cream truck. Wanted level cleared. Nobody on this frequency wants to discuss it."],
+  ["throwback","Hidden packages","One hundred of them, scattered across a city, findable only by a boy with a magazine and no plans that decade. Completionism was invented here and has since been weaponised."],
+  ["receipts","Preload begins","Sixty-odd gigabytes down the wire before launch, which is a magnificent thing unless your internet is a copper wire and a prayer, in which case the box helps you not at all."],
+  ["radio","Ad break: Vice Beach Timeshare","Own a week of a condo forever! Fine print: you don't own it, you license it, and the week can be revoked. We workshopped this model with a games publisher. Wildly successful."],
+  ["throwback","The bridge opens","That moment the second island unlocks and the map doubles. No open world since has replicated the specific feeling of a city getting bigger because you earned it."],
+  ["fineprint","Delisted","A game vanishes from a store over expired music rights and everyone who “bought” it discovers what they actually have. The disc owners, meanwhile, are completely fine and extremely smug."],
+  ["dispatch","Be advised, heavy traffic","Every unit in the state is converging on one storefront queue. Multiple reports of grown adults in folding chairs. No arrests. Honestly, a bit moving."],
+  ["throwback","A tank, from nothing","Type the letters, a tank arrives. No microtransaction, no battle pass, no season. A gift from the developers to a bored kid on a Tuesday, for free, because it was funny."],
+  ["receipts","The shop that stayed shut","Somewhere a 40-year-old game shop is turning down the busiest week it will ever see. If you want to know what ownership is worth, ask the person choosing to lose money over it."],
+  ["radio","Nostalgia hour","Tonight: three songs you associate entirely with committing vehicular crimes as a teenager, and one you associate with your dad. The overlap is larger than you'd like."],
+  ["throwback","The modders kept it alive","Every old GTA still runs, still looks better than it should, still gets new content, entirely because strangers refused to let it go. None of that works on a revoked licence."],
+  ["fineprint","Nobody read it","The agreement is longer than several novels you claim to have finished. It contains the only honest sentence in the entire transaction and it is on page sixteen."],
+  ["dispatch","Stand down, all units","Ten days out. Nothing to be done. The city holds its breath. Somebody on the frequency is humming. It's fine. Let them."],
+  ["throwback","Loading screen art","Flat colour, hard ink lines, a woman on a motorcycle and a man with a phone. You have stared at more of these than at most paintings and you would recognise one instantly."],
+  ["receipts","What's in the box","Cardboard. Paper. A string of letters. Somewhere a supply chain packed a code into a case and shipped it across an ocean, which is a lot of physical work for a digital product."],
+  ["radio","Countdown show","One week. The host has run out of material and is now reading listener texts aloud. Most of them are just the word “finally” with an escalating number of exclamation marks."],
+  ["throwback","Saving at the safehouse","Drive home, walk to the bed, watch the clock spin six hours. A ritual. A small domestic peace in a game about crime. Autosave took it and gave nothing back."],
+  ["fineprint","What you actually get","A licence, revocable, non-transferable, tied to an account, on a platform that has told a judge you already knew this. Enjoy the game. It will probably be extraordinary. That part is real."],
+  ["dispatch","Forty-eight hours","All units advised to pre-book time off. Command has already done so. Command is not answering the radio. Command is at home installing something."],
+  ["receipts","Launch eve","One day out. Eleven years of waiting, one box with nothing in it, two shops that wouldn't sell it, and a whole industry pretending this is normal. Set an alarm anyway. You know you will."],
+  ["throwback","The night before","Every one of these has had a night like this. The map you haven't seen, the radio you haven't heard, the first drive at sunset you'll remember for a decade. Get some sleep. You won't."]
+  ];
+
+  var CAT = {
+    throwback:{label:"Throwback",cls:"c-throwback"},
+    receipts:{label:"Receipts",cls:"c-receipts"},
+    fineprint:{label:"Fine print",cls:"c-fineprint"},
+    radio:{label:"Radio",cls:"c-radio"},
+    dispatch:{label:"Dispatch",cls:"c-dispatch"}
+  };
+
+  /* ============ STORAGE ============ */
+  var KEY="leonida.doors.v1", CKEY="leonida.cheat.v1";
+  function load(k,fb){try{var v=localStorage.getItem(k);return v?JSON.parse(v):fb;}catch(e){return fb;}}
+  function save(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}
+  var opened = load(KEY,[]) || [];
+  var cheated = load(CKEY,false) === true;
+
+  /* ============ HELPERS ============ */
+  var DAY=864e5;
+  function dayStart(d){return new Date(d.getFullYear(),d.getMonth(),d.getDate()).getTime();}
+  function doorDate(i){return new Date(START.getTime()+i*DAY);}
+  function fmt(d){
+    var M=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+    return d.getDate()+" "+M[d.getMonth()];
+  }
+  function daysLeftFor(d){return Math.round((dayStart(LAUNCH)-dayStart(d))/DAY);}
+
+  var toastEl=document.getElementById("toast"),
+      toastT=document.getElementById("toast-t"),
+      toastB=document.getElementById("toast-b"),
+      toastTimer=null;
+  function toast(title,body,good){
+    toastT.textContent=title; toastB.textContent=body;
+    toastEl.classList.toggle("good",!!good);
+    toastEl.hidden=false;
+    requestAnimationFrame(function(){toastEl.classList.add("show");});
+    clearTimeout(toastTimer);
+    toastTimer=setTimeout(function(){
+      toastEl.classList.remove("show");
+      setTimeout(function(){toastEl.hidden=true;},450);
+    },4200);
+  }
+
+  /* ============ BUILD DOORS ============ */
+  var grid=document.getElementById("doors");
+  var today=dayStart(new Date());
+
+  function build(){
+    grid.innerHTML="";
+    for(var i=0;i<CARDS.length;i++){
+      var c=CARDS[i], d=doorDate(i), meta=CAT[c[0]];
+      var unlocked = cheated || dayStart(d)<=today;
+      var isToday = dayStart(d)===today;
+      var isOpen = opened.indexOf(i)>-1;
+      var left = daysLeftFor(d);
+
+      var el=document.createElement("article");
+      el.className="door"+(isOpen?" open":"")+(unlocked?"":" locked")+(isToday?" today":"");
+      el.dataset.i=i;
+
+      el.innerHTML =
+        '<span class="cat '+meta.cls+'">'+meta.label+'</span>'+
+        '<h3></h3><p></p>'+
+        '<span class="meta">'+fmt(d)+' &middot; Night '+(i+1)+' of 64</span>'+
+        '<button class="shutter" type="button">'+
+          '<span><span class="num">'+left+'</span><br><span class="sub">night'+(left===1?"":"s")+' to go</span></span>'+
+          '<span class="'+(unlocked?"sub":"lock")+'">'+
+            (unlocked ? (isToday ? "Tonight &middot; tap to open" : "Tap to open") : "&#128274; Unlocks "+fmt(d))+
+          '</span>'+
+        '</button>';
+
+      el.querySelector("h3").textContent=c[1];
+      el.querySelector("p").textContent=c[2];
+      grid.appendChild(el);
+    }
+
+    // launch tile
+    var lt=document.createElement("article");
+    lt.className="door launch open";
+    var lLeft=daysLeftFor(new Date());
+    lt.innerHTML='<span class="cat c-receipts">Launch night</span>'+
+      '<h3>19 November 2026 &mdash; Leonida opens</h3>'+
+      '<p>Eleven years, one empty box, two principled shopkeepers and a legal filing about what the word "buy" means. Whatever else is true, the drive at sunset is going to be worth it. See you out there.</p>'+
+      '<span class="meta">19 Nov 2026 &middot; '+(lLeft>0?lLeft+" night"+(lLeft===1?"":"s")+" from tonight":"It is time")+'</span>';
+    grid.appendChild(lt);
+
+    updateProgress();
+  }
+
+  function updateProgress(){
+    var n=opened.length;
+    document.getElementById("p-count").textContent=n;
+    document.getElementById("p-rail").style.width=Math.round(n/CARDS.length*100)+"%";
+  }
+
+  grid.addEventListener("click",function(ev){
+    var btn=ev.target.closest(".shutter");
+    if(!btn) return;
+    var door=btn.closest(".door");
+    var i=parseInt(door.dataset.i,10);
+    if(door.classList.contains("locked")){
+      door.classList.remove("shake");
+      void door.offsetWidth;
+      door.classList.add("shake");
+      toast("Licence not yet validated",
+        "This content is licensed to you, not sold to you, and definitely not yet. Unlocks "+fmt(doorDate(i))+". Or find the cheat code, like a person with values.");
+      return;
+    }
+    door.classList.add("open");
+    if(opened.indexOf(i)===-1){opened.push(i);save(KEY,opened);updateProgress();}
+  });
+
+  /* ============ CHEAT ============ */
+  function applyCheat(){
+    cheated=true; save(CKEY,true);
+    build();
+    toast("Cheat accepted","All 64 doors unlocked, no entitlement check, no account binding, no server in another country. Just like it used to work.",true);
+  }
+  document.getElementById("cheat-go").addEventListener("click",function(){
+    var v=(document.getElementById("cheat-in").value||"").toUpperCase().replace(/[^A-Z]/g,"");
+    if(v===CODE){document.getElementById("cheat-in").value="";applyCheat();}
+    else if(v.length){toast("Invalid code","That one spawned a tank in 2004. It does nothing here. Hint: four words about discs and peace, no spaces.");}
+  });
+  document.getElementById("cheat-in").addEventListener("keydown",function(e){
+    if(e.key==="Enter"){e.preventDefault();document.getElementById("cheat-go").click();}
+  });
+  // old-school: just type it anywhere
+  var buf="";
+  window.addEventListener("keydown",function(e){
+    if(e.target && (e.target.tagName==="INPUT"||e.target.tagName==="TEXTAREA")) return;
+    if(!/^[a-zA-Z]$/.test(e.key)) return;
+    buf=(buf+e.key.toUpperCase()).slice(-CODE.length);
+    if(buf===CODE && !cheated) applyCheat();
+  });
+
+  document.getElementById("reset").addEventListener("click",function(){
+    opened=[]; cheated=false; save(KEY,opened); save(CKEY,false); build();
+    toast("Progress wiped","Doors re-locked, cheat revoked. Your access has been remotely modified, which should feel extremely familiar.");
+  });
+
+  /* ============ TICKER ============ */
+  var last={};
+  function tick(){
+    var now=new Date(), diff=LAUNCH-now;
+    if(diff<0) diff=0;
+    var d=Math.floor(diff/DAY),
+        h=Math.floor(diff%DAY/36e5),
+        m=Math.floor(diff%36e5/6e4),
+        s=Math.floor(diff%6e4/1000);
+    set("u-d",d); set("u-h",pad(h)); set("u-m",pad(m)); set("u-s",pad(s));
+
+    var total=Math.round((dayStart(LAUNCH)-START.getTime())/DAY);
+    var elapsed=Math.max(0,Math.min(total,total-d));
+    var stars=Math.max(1,Math.min(6,1+Math.floor(elapsed/total*5.999)));
+    renderStars(stars);
+    document.getElementById("heat-label").textContent =
+      d<=0?"Launch night":(d<=1?"Maximum":(d<=7?"Critical":(d<=21?"Elevated":(d<=45?"Rising":"Warming up"))));
+  }
+  function pad(n){return n<10?"0"+n:""+n;}
+  function set(id,v){
+    if(last[id]===v) return;
+    last[id]=v;
+    var el=document.getElementById(id);
+    el.textContent=v;
+    var u=el.parentNode;
+    u.classList.remove("pop"); void u.offsetWidth; u.classList.add("pop");
+  }
+  var starsEl=document.getElementById("stars"), starN=-1;
+  function renderStars(n){
+    if(n===starN) return;
+    starN=n; starsEl.innerHTML="";
+    for(var i=0;i<6;i++){
+      var sv=document.createElementNS("http://www.w3.org/2000/svg","svg");
+      sv.setAttribute("viewBox","0 0 24 24");
+      sv.setAttribute("class","star"+(i<n?" on":""));
+      sv.setAttribute("aria-hidden","true");
+      sv.innerHTML='<path fill="currentColor" d="M12 1.6l3.1 6.6 7.1.9-5.2 4.9 1.4 7.1L12 17.6 5.6 21.1 7 14 1.8 9.1l7.1-.9z"/>';
+      starsEl.appendChild(sv);
+    }
+  }
+
+  /* ============ SUNSET CANVAS ============ */
+  var cv=document.getElementById("sky"), ctx=cv.getContext("2d");
+  var reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var W=0,H=0,DPR=1,t=0,stars2=[];
+
+  function resize(){
+    var r=cv.parentNode.getBoundingClientRect();
+    DPR=Math.min(window.devicePixelRatio||1,2);
+    W=Math.max(320,r.width); H=Math.max(360,r.height);
+    cv.width=W*DPR; cv.height=H*DPR;
+    ctx.setTransform(DPR,0,0,DPR,0,0);
+    stars2=[];
+    for(var i=0;i<90;i++) stars2.push({x:Math.random()*W,y:Math.random()*H*0.56,r:Math.random()*1.3+.2,p:Math.random()*6.28});
+    draw();
+  }
+
+  function draw(){
+    var hz=H*0.62;
+    // sky
+    var g=ctx.createLinearGradient(0,0,0,hz);
+    g.addColorStop(0,"#120627"); g.addColorStop(.45,"#3A0E52"); g.addColorStop(.82,"#8E1B63"); g.addColorStop(1,"#FF5B7A");
+    ctx.fillStyle=g; ctx.fillRect(0,0,W,hz);
+    // ground
+    var g2=ctx.createLinearGradient(0,hz,0,H);
+    g2.addColorStop(0,"#1A0733"); g2.addColorStop(1,"#0A0418");
+    ctx.fillStyle=g2; ctx.fillRect(0,hz,W,H-hz);
+
+    // stars
+    for(var i=0;i<stars2.length;i++){
+      var st=stars2[i];
+      var a=.35+.45*Math.sin(t*.02+st.p);
+      ctx.globalAlpha=Math.max(0,a)*(1-st.y/(H*.62));
+      ctx.fillStyle="#FFE9F6";
+      ctx.beginPath(); ctx.arc(st.x,st.y,st.r,0,6.283); ctx.fill();
+    }
+    ctx.globalAlpha=1;
+
+    // sun
+    var cx=W*0.5, cy=hz-4, R=Math.min(W*0.19,150);
+    ctx.save();
+    ctx.beginPath(); ctx.arc(cx,cy,R,Math.PI,0); ctx.closePath(); ctx.clip();
+    var sg=ctx.createLinearGradient(0,cy-R,0,cy);
+    sg.addColorStop(0,"#FFD86B"); sg.addColorStop(.5,"#FF8A3D"); sg.addColorStop(1,"#FF2E88");
+    ctx.fillStyle=sg; ctx.fillRect(cx-R,cy-R,R*2,R);
+    // slits
+    ctx.fillStyle="rgba(10,4,24,.85)";
+    for(var k=0;k<9;k++){
+      var yy=cy-R*0.62+k*(R*0.085);
+      var hgt=Math.max(1.2,1.4+k*0.9);
+      ctx.fillRect(cx-R,yy,R*2,hgt);
+    }
+    ctx.restore();
+    ctx.globalAlpha=.32;
+    ctx.fillStyle="#FF2E88";
+    ctx.beginPath(); ctx.arc(cx,cy,R*1.5,Math.PI,0); ctx.fill();
+    ctx.globalAlpha=1;
+
+    // grid
+    ctx.save();
+    ctx.beginPath(); ctx.rect(0,hz,W,H-hz); ctx.clip();
+    ctx.lineWidth=1;
+    ctx.strokeStyle="rgba(37,231,245,.42)";
+    var vanish=cx, spacing=W*0.11;
+    for(var v=-14;v<=14;v++){
+      ctx.beginPath();
+      ctx.moveTo(vanish,hz);
+      ctx.lineTo(vanish+v*spacing*3.2,H+40);
+      ctx.stroke();
+    }
+    var off=(t*0.9)%1;
+    for(var row=0;row<16;row++){
+      var p=(row+off)/16;
+      var y=hz+Math.pow(p,2.35)*(H-hz)*1.25;
+      if(y>H+2) continue;
+      ctx.globalAlpha=Math.min(1,p*2.2)*0.55;
+      ctx.strokeStyle="rgba(255,46,136,.75)";
+      ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(W,y); ctx.stroke();
+    }
+    ctx.globalAlpha=1;
+    ctx.restore();
+
+    // horizon glow
+    var hg=ctx.createLinearGradient(0,hz-26,0,hz+26);
+    hg.addColorStop(0,"rgba(255,177,60,0)");
+    hg.addColorStop(.5,"rgba(255,177,60,.5)");
+    hg.addColorStop(1,"rgba(255,46,136,0)");
+    ctx.fillStyle=hg; ctx.fillRect(0,hz-26,W,52);
+
+    // palms
+    palm(W*0.09,hz+8,Math.min(H*0.34,150));
+    palm(W*0.91,hz+14,Math.min(H*0.40,176));
+    if(W>760){ palm(W*0.22,hz+2,Math.min(H*0.24,104)); palm(W*0.79,hz+4,Math.min(H*0.27,116)); }
+
+    // vignette
+    var vg=ctx.createRadialGradient(W/2,H*.5,Math.min(W,H)*.25,W/2,H*.5,Math.max(W,H)*.78);
+    vg.addColorStop(0,"rgba(10,4,24,0)"); vg.addColorStop(1,"rgba(10,4,24,.92)");
+    ctx.fillStyle=vg; ctx.fillRect(0,0,W,H);
+  }
+
+  function palm(x,baseY,h){
+    ctx.save();
+    ctx.strokeStyle="#0A0418"; ctx.fillStyle="#0A0418";
+    ctx.lineWidth=Math.max(3,h*0.032); ctx.lineCap="round";
+    ctx.beginPath();
+    ctx.moveTo(x,baseY);
+    ctx.quadraticCurveTo(x+h*0.10,baseY-h*0.55,x+h*0.05,baseY-h);
+    ctx.stroke();
+    var tx=x+h*0.05, ty=baseY-h;
+    for(var i=0;i<7;i++){
+      var ang=-Math.PI*0.92+ i*(Math.PI*0.84/6);
+      var L=h*0.40;
+      ctx.lineWidth=Math.max(2,h*0.022);
+      ctx.beginPath();
+      ctx.moveTo(tx,ty);
+      ctx.quadraticCurveTo(tx+Math.cos(ang)*L*0.6, ty+Math.sin(ang)*L*0.6 - h*0.10,
+                           tx+Math.cos(ang)*L,     ty+Math.sin(ang)*L + h*0.07);
+      ctx.stroke();
+    }
+    ctx.restore();
+  }
+
+  function loop(){ t+=0.016; draw(); requestAnimationFrame(loop); }
+
+  /* ============ GO ============ */
+  build();
+  tick();
+  setInterval(tick,1000);
+  resize();
+  window.addEventListener("resize",function(){clearTimeout(window.__rz);window.__rz=setTimeout(resize,160);});
+  if(!reduce) loop();
+
+  if(!cheated){
+    setTimeout(function(){
+      toast("Cheat codes still work here","Type NODISCNOPEACE anywhere on this page to unlock all 64 doors. No account required. No licence check. No takebacks.",true);
+    },2600);
+  }
+})();
+</script>
+
+</body>
+</html>
