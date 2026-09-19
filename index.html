@@ -407,6 +407,102 @@ h2 span{color:var(--flamingo)}
 .door.launch h3{font-size:clamp(20px,4vw,30px)}
 .door.launch .shutter .num{font-size:clamp(34px,7vw,56px)}
 
+/* ---------- RADIO UNIT (fixed HUD widget) ---------- */
+.radio-unit{
+  position:fixed;
+  top:calc(env(safe-area-inset-top,0px) + 66px);
+  right:14px;
+  z-index:45;
+  width:184px;
+  background:linear-gradient(160deg,var(--panel-hi) 0%,#150829 100%);
+  border:1px solid var(--edge);
+  border-radius:8px;
+  padding:9px 11px 11px;
+  box-shadow:0 16px 40px -16px rgba(0,0,0,.8),inset 0 1px 0 rgba(255,255,255,.06);
+}
+.ru-head{display:flex;align-items:center;gap:7px;margin-bottom:7px}
+.ru-led{
+  width:7px;height:7px;border-radius:99px;flex:none;
+  background:var(--muted);
+  transition:background .2s,box-shadow .2s;
+}
+.radio-unit.on .ru-led{background:var(--lime);box-shadow:0 0 8px rgba(140,255,90,.9);animation:beat 1.9s ease-in-out infinite}
+.ru-brand{
+  font-family:"Space Mono",monospace;
+  font-size:9px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+.ru-screen{
+  background:#0A0418;
+  border:1px solid rgba(37,231,245,.28);
+  border-radius:3px;
+  padding:6px 8px;
+  overflow:hidden;
+  margin-bottom:9px;
+}
+.ru-station{
+  font-family:"Bungee",Impact,sans-serif;
+  font-size:12.5px;
+  color:var(--cyan);
+  text-shadow:0 0 6px rgba(37,231,245,.55);
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.ru-now{
+  font-family:"Space Mono",monospace;
+  font-size:9px;
+  color:var(--lime);
+  white-space:nowrap;
+  overflow:hidden;
+  margin-top:3px;
+}
+.ru-now span{display:inline-block}
+.ru-now.marquee span{padding-right:28px;animation:ru-marquee 8s linear infinite}
+@keyframes ru-marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.ru-row{display:flex;align-items:flex-end;justify-content:space-between;gap:6px}
+.ru-knob{display:flex;flex-direction:column;align-items:center;gap:4px;cursor:grab;touch-action:none;-webkit-user-select:none;user-select:none}
+.ru-knob:active{cursor:grabbing}
+.ru-knob-body{
+  width:38px;height:38px;border-radius:50%;
+  background:radial-gradient(circle at 34% 28%,#4A2A7A,#180A30 72%);
+  border:1px solid var(--edge);
+  position:relative;
+  box-shadow:inset 0 2px 5px rgba(0,0,0,.55),0 2px 6px rgba(0,0,0,.4);
+}
+.ru-knob-body::before{
+  content:"";
+  position:absolute; inset:3px; border-radius:50%;
+  background:repeating-conic-gradient(from 0deg,rgba(255,255,255,.05) 0 2deg,transparent 2deg 12deg);
+}
+.ru-knob-mark{
+  position:absolute; left:50%; top:4px; width:2px; height:13px;
+  margin-left:-1px;
+  background:var(--cyan); box-shadow:0 0 5px var(--cyan);
+  border-radius:2px;
+  transform-origin:50% 15px;
+  transform:rotate(var(--rot,-135deg));
+}
+.ru-knob:not(.dragging) .ru-knob-mark{transition:transform .35s cubic-bezier(.22,1,.36,1)}
+.ru-knob-lbl{font-family:"Space Mono",monospace;font-size:8px;letter-spacing:.16em;color:var(--muted)}
+.ru-knob:focus-visible .ru-knob-body{outline:2px solid var(--cyan);outline-offset:2px}
+.ru-power{
+  width:32px;height:32px;border-radius:50%;
+  border:1px solid var(--flamingo);
+  background:#170A2C;
+  color:var(--flamingo);
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;
+  margin-bottom:14px;
+  transition:background .18s,color .18s,box-shadow .18s,border-color .18s;
+}
+.ru-power svg{width:15px;height:15px}
+.ru-power:hover{background:var(--flamingo);color:#12061F;box-shadow:0 0 14px rgba(255,46,136,.6)}
+.radio-unit.on .ru-power{border-color:var(--lime);color:var(--lime)}
+.radio-unit.on .ru-power:hover{background:var(--lime);color:#0D1A06;box-shadow:0 0 14px rgba(140,255,90,.6)}
+
 /* ---------- RECEIPTS ---------- */
 .receipts{
   display:grid;
@@ -499,6 +595,11 @@ footer .fine{margin-top:22px;font-size:11.5px;color:#6E5A8A;max-width:70ch}
   .door{min-height:168px;padding:13px}
   .shutter{padding:13px}
   .shutter .num{font-size:34px}
+  .radio-unit{width:150px;top:calc(env(safe-area-inset-top,0px) + 60px);right:10px;padding:7px 8px 9px}
+  .ru-knob-body{width:32px;height:32px}
+  .ru-power{width:28px;height:28px;margin-bottom:12px}
+  .ru-power svg{width:13px;height:13px}
+  .ru-station{font-size:11px}
 }
 </style>
 
@@ -539,6 +640,31 @@ footer .fine{margin-top:22px;font-size:11.5px;color:#6E5A8A;max-width:70ch}
       <input id="cheat-in" type="text" placeholder="Enter cheat code" autocomplete="off" spellcheck="false">
       <button class="btn" id="cheat-go" type="button">Enter</button>
       <button class="btn ghost" id="reset" type="button">Reset</button>
+    </div>
+  </div>
+</div>
+
+<div class="radio-unit" id="radio-unit" title="Independent internet radio (Nightride FM, via lissen.to) &#8212; not the GTA VI soundtrack, not affiliated with Rockstar.">
+  <audio id="radio-audio" preload="none" hidden></audio>
+  <div class="ru-head">
+    <span class="ru-led" id="ru-led" aria-hidden="true"></span>
+    <span class="ru-brand">Leonida FM</span>
+  </div>
+  <div class="ru-screen">
+    <div class="ru-station" id="ru-station">&mdash;</div>
+    <div class="ru-now"><span id="ru-now-t">Press play</span></div>
+  </div>
+  <div class="ru-row">
+    <div class="ru-knob" id="ru-tune" tabindex="0" role="slider" aria-label="Tune station" aria-valuemin="0" aria-valuemax="6" aria-valuenow="0">
+      <div class="ru-knob-body"><i class="ru-knob-mark"></i></div>
+      <span class="ru-knob-lbl">TUNE</span>
+    </div>
+    <button class="ru-power" id="ru-power" type="button" aria-label="Play or pause radio">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a1 1 0 0 1 1 1v8a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1Zm6.36 3.64a1 1 0 0 1 0 1.41 8 8 0 1 1-12.72 0 1 1 0 1 1 1.41-1.41 6 6 0 1 0 9.9 0 1 1 0 0 1 1.41 0Z"/></svg>
+    </button>
+    <div class="ru-knob" id="ru-vol" tabindex="0" role="slider" aria-label="Volume" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80">
+      <div class="ru-knob-body"><i class="ru-knob-mark"></i></div>
+      <span class="ru-knob-lbl">VOL</span>
     </div>
   </div>
 </div>
@@ -972,6 +1098,163 @@ footer .fine{margin-top:22px;font-size:11.5px;color:#6E5A8A;max-width:70ch}
   }
 
   function loop(){ t+=0.016; draw(); requestAnimationFrame(loop); }
+
+  /* ============ RADIO ============ */
+  var STATIONS=[
+    {id:"nightride",name:"Nightride FM",genre:"Synthwave · Outrun"},
+    {id:"chillsynth",name:"Chillsynth FM",genre:"Chillwave · Downtempo"},
+    {id:"spacesynth",name:"Spacesynth FM",genre:"Spacesynth · Italo"},
+    {id:"datawave",name:"Datawave FM",genre:"Sovietwave · Dreamwave"},
+    {id:"darksynth",name:"Darksynth FM",genre:"Darksynth · Coldwave"},
+    {id:"horrorsynth",name:"Horrorsynth FM",genre:"Horrorsynth · Retro horror"},
+    {id:"ebsm",name:"EBSM",genre:"Industrial · EBM · Dark clubbing"}
+  ];
+  var RKEY="leonida.radio.v1", VKEY="leonida.radio.vol.v1";
+  var radioAudio=document.getElementById("radio-audio"),
+      radioEl=document.getElementById("radio-unit"),
+      ruLed=document.getElementById("ru-led"),
+      ruStation=document.getElementById("ru-station"),
+      ruNowT=document.getElementById("ru-now-t"),
+      ruNowWrap=ruNowT.parentNode,
+      ruPower=document.getElementById("ru-power"),
+      tuneKnob=document.getElementById("ru-tune"),
+      tuneBody=tuneKnob.querySelector(".ru-knob-body"),
+      tuneMark=tuneKnob.querySelector(".ru-knob-mark"),
+      volKnob=document.getElementById("ru-vol"),
+      volBody=volKnob.querySelector(".ru-knob-body"),
+      volMark=volKnob.querySelector(".ru-knob-mark");
+  var radioIdx=Math.max(0,STATIONS.findIndex(function(s){return s.id===load(RKEY,"nightride");}));
+  var radioPlaying=false, nowTimer=null;
+
+  function knobAngle(el,clientX,clientY){
+    var r=el.getBoundingClientRect(), cx=r.left+r.width/2, cy=r.top+r.height/2;
+    var a=Math.atan2(clientX-cx,-(clientY-cy))*180/Math.PI;
+    if(a>135) a=135; else if(a<-135) a=-135;
+    return a;
+  }
+  function updateNowText(text){
+    ruNowT.textContent=text;
+    ruNowWrap.classList.remove("marquee");
+    requestAnimationFrame(function(){
+      if(ruNowT.scrollWidth>ruNowWrap.clientWidth){
+        ruNowT.textContent=text+"   •   "+text;
+        ruNowWrap.classList.add("marquee");
+      }
+    });
+  }
+  function setTuneMarkForIdx(idx){
+    var a=-135+idx/(STATIONS.length-1)*270;
+    tuneMark.style.setProperty("--rot",a+"deg");
+    tuneKnob.setAttribute("aria-valuenow",idx);
+  }
+  function setVolume(v){
+    v=Math.max(0,Math.min(1,v));
+    radioAudio.volume=v;
+    save(VKEY,v);
+    volMark.style.setProperty("--rot",(-135+v*270)+"deg");
+    volKnob.setAttribute("aria-valuenow",Math.round(v*100));
+  }
+
+  function selectStation(i,keepPlaying){
+    radioIdx=(i+STATIONS.length)%STATIONS.length;
+    save(RKEY,STATIONS[radioIdx].id);
+    var s=STATIONS[radioIdx];
+    ruStation.textContent=s.name;
+    setTuneMarkForIdx(radioIdx);
+    updateNowText("Tune in to see what's playing");
+    if(keepPlaying) startPlayback(); else stopPlayback();
+    fetchNowPlaying();
+  }
+  function startPlayback(){
+    var s=STATIONS[radioIdx];
+    radioAudio.src="https://stream.nightride.fm/"+s.id+".mp3";
+    radioAudio.play().then(function(){
+      radioPlaying=true;
+      radioEl.classList.add("on");
+    }).catch(function(){
+      radioPlaying=false;
+      radioEl.classList.remove("on");
+      toast("Playback blocked","The browser needs a click before it'll let anything make noise. Press play again.");
+    });
+  }
+  function stopPlayback(){
+    radioAudio.pause();
+    radioAudio.removeAttribute("src");
+    radioAudio.load();
+    radioPlaying=false;
+    radioEl.classList.remove("on");
+  }
+  ruPower.addEventListener("click",function(){
+    if(radioPlaying) stopPlayback(); else startPlayback();
+  });
+
+  /* -- tune knob: drag to change station, arrow keys too -- */
+  var tuneDragging=false;
+  function handleTuneMove(e){
+    var a=knobAngle(tuneBody,e.clientX,e.clientY);
+    tuneMark.style.setProperty("--rot",a+"deg");
+    var idx=Math.max(0,Math.min(STATIONS.length-1,Math.round((a+135)/270*(STATIONS.length-1))));
+    if(idx!==radioIdx) selectStation(idx,radioPlaying);
+  }
+  tuneKnob.addEventListener("pointerdown",function(e){
+    tuneDragging=true; tuneKnob.classList.add("dragging");
+    tuneKnob.setPointerCapture(e.pointerId);
+    handleTuneMove(e);
+  });
+  tuneKnob.addEventListener("pointermove",function(e){ if(tuneDragging) handleTuneMove(e); });
+  function endTuneDrag(){ tuneDragging=false; tuneKnob.classList.remove("dragging"); }
+  tuneKnob.addEventListener("pointerup",endTuneDrag);
+  tuneKnob.addEventListener("pointercancel",endTuneDrag);
+  tuneKnob.addEventListener("keydown",function(e){
+    if(e.key==="ArrowRight"||e.key==="ArrowUp"){ e.preventDefault(); selectStation(radioIdx+1,radioPlaying); }
+    else if(e.key==="ArrowLeft"||e.key==="ArrowDown"){ e.preventDefault(); selectStation(radioIdx-1,radioPlaying); }
+  });
+
+  /* -- volume knob: drag to adjust, arrow keys too -- */
+  var volDragging=false;
+  function handleVolMove(e){
+    setVolume((knobAngle(volBody,e.clientX,e.clientY)+135)/270);
+  }
+  volKnob.addEventListener("pointerdown",function(e){
+    volDragging=true; volKnob.classList.add("dragging");
+    volKnob.setPointerCapture(e.pointerId);
+    handleVolMove(e);
+  });
+  volKnob.addEventListener("pointermove",function(e){ if(volDragging) handleVolMove(e); });
+  function endVolDrag(){ volDragging=false; volKnob.classList.remove("dragging"); }
+  volKnob.addEventListener("pointerup",endVolDrag);
+  volKnob.addEventListener("pointercancel",endVolDrag);
+  volKnob.addEventListener("keydown",function(e){
+    if(e.key==="ArrowRight"||e.key==="ArrowUp"){ e.preventDefault(); setVolume(radioAudio.volume+0.05); }
+    else if(e.key==="ArrowLeft"||e.key==="ArrowDown"){ e.preventDefault(); setVolume(radioAudio.volume-0.05); }
+  });
+
+  function fetchNowPlaying(){
+    fetch("https://stream.nightride.fm/status-json.xsl",{cache:"no-store"})
+      .then(function(r){return r.json();})
+      .then(function(d){
+        var sources=(d&&d.icestats&&d.icestats.source)||[];
+        var id=STATIONS[radioIdx].id, want=id+".mp3";
+        for(var i=0;i<sources.length;i++){
+          var u=sources[i].listenurl||"";
+          if(u.slice(-want.length)===want){
+            updateNowText(sources[i].title||"On air, title unlisted");
+            return;
+          }
+        }
+      })
+      .catch(function(){});
+  }
+
+  setVolume(load(VKEY,0.8));
+  selectStation(radioIdx,false);
+  nowTimer=setInterval(fetchNowPlaying,20000);
+  radioAudio.addEventListener("error",function(){
+    if(radioPlaying){
+      radioPlaying=false; radioEl.classList.remove("on");
+      toast("Signal lost","That station dropped out. Turn the dial, or press power to retry.");
+    }
+  });
 
   /* ============ GO ============ */
   build();
